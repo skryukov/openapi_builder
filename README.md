@@ -1,4 +1,12 @@
-# OpenapiBuilder
+[gem]: https://rubygems.org/gems/openapi_builder
+[travis]: https://travis-ci.org/llcmedsolutions/openapi_builder
+[codeclimate]: https://codeclimate.com/github/llcmedsolutions/openapi_builder
+
+# openapi_builder
+[![Gem Version](https://badge.fury.io/rb/openapi_builder.svg)][gem]
+[![Build Status](https://travis-ci.org/llcmedsolutions/openapi_builder.svg?branch=master)][travis]
+[![Code Climate](https://codeclimate.com/github/llcmedsolutions/openapi_builder/badges/gpa.svg)][codeclimate]
+[![Test Coverage](https://codeclimate.com/github/llcmedsolutions/openapi_builder/badges/coverage.svg)][codeclimate]
 
 Simple OpenAPI specification builder inspired by [Redoc.ly's Generator](https://github.com/ReDoc-ly/create-openapi-repo)
 
