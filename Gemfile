@@ -4,5 +4,5 @@ source "https://rubygems.org"
 gemspec
 
 group :test do
-  gem 'simplecov', require: false, platform: :mri
+  gem "simplecov", require: false, platform: :mri
 end
