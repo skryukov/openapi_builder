@@ -1,12 +1,12 @@
 [gem]: https://rubygems.org/gems/openapi_builder
-[travis]: https://travis-ci.org/llcmedsolutions/openapi_builder
-[codeclimate]: https://codeclimate.com/github/llcmedsolutions/openapi_builder
+[travis]: https://travis-ci.org/medsolutions/openapi_builder
+[codeclimate]: https://codeclimate.com/github/medsolutions/openapi_builder
 
 # openapi_builder
 [![Gem Version](https://badge.fury.io/rb/openapi_builder.svg)][gem]
-[![Build Status](https://travis-ci.org/llcmedsolutions/openapi_builder.svg?branch=master)][travis]
-[![Code Climate](https://codeclimate.com/github/llcmedsolutions/openapi_builder/badges/gpa.svg)][codeclimate]
-[![Test Coverage](https://codeclimate.com/github/llcmedsolutions/openapi_builder/badges/coverage.svg)][codeclimate]
+[![Build Status](https://travis-ci.org/medsolutions/openapi_builder.svg?branch=master)][travis]
+[![Code Climate](https://codeclimate.com/github/medsolutions/openapi_builder/badges/gpa.svg)][codeclimate]
+[![Test Coverage](https://codeclimate.com/github/medsolutions/openapi_builder/badges/coverage.svg)][codeclimate]
 
 Simple OpenAPI specification builder inspired by [Redoc.ly's Generator](https://github.com/ReDoc-ly/create-openapi-repo)
 
@@ -38,7 +38,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/llcmedsolutions/openapi_builder.
+Bug reports and pull requests are welcome on GitHub at https://github.com/medsolutions/openapi_builder.
 
 ## License
 
