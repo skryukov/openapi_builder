@@ -8,11 +8,11 @@ Gem::Specification.new do |spec|
   spec.authors = ["Svyatoslav Kryukov"]
   spec.email = ["s.g.kryukov@yandex.ru"]
   spec.summary = "Simple OpenAPI specification builder inspired by https://github.com/Rebilly/RebillyAPI"
-  spec.homepage = "https://github.com/llcmedsolutions/openapi_builder"
+  spec.homepage = "https://github.com/medsolutions/openapi_builder"
   spec.license = "MIT"
 
   spec.files = Dir["LICENSE.txt", "README.md", "lib/**/*"]
-  spec.executables = []
+  spec.executables = ["openapi_builder"]
   spec.test_files = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
   spec.required_ruby_version = ">= 2.4"

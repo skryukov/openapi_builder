@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require "openapi_builder"
+
+usage_message = "Usage: openapi_builder build SRC_FILE DST_FILE"
+
+return puts usage_message if ARGV.length != 3
+return puts usage_message unless %w[build].include?(ARGV[0])
+
+case File.extname(ARGV[2])
+when ".yml", ".yaml"
+  data = OpenapiBuilder.call(ARGV[1]).to_yaml
+when ".json"
+  data = OpenapiBuilder.call(ARGV[1]).to_json
+else
+  return puts "DST_FILE extname should be json or yml/yaml"
+end
+
+File.open(ARGV[2], 'w') { |file| file.write(data) }
