@@ -23,7 +23,7 @@ module OpenapiBuilder
     end
 
     def load_components
-      @data["components"] = Hash.new.tap do |components|
+      @data["components"] = {}.tap do |components|
         component_dirs.each do |component_path|
           components[File.basename(component_path)] = load_component(component_path)
         end
@@ -35,23 +35,23 @@ module OpenapiBuilder
     end
 
     def load_component(component_path)
-      Hash.new.tap do |block|
+      {}.tap do |block|
         Dir["#{component_path}/*"].each do |file|
           content = load_file(file)
           next unless content
 
-          block[File.basename(file, '.*')] = content
+          block[File.basename(file, ".*")] = content
         end
       end
     end
 
     def load_paths
-      @data["paths"] = Hash.new.tap do |paths|
+      @data["paths"] = {}.tap do |paths|
         Dir["#{@dirname}/paths/*"].each do |file|
           content = load_file(file)
           next unless content
 
-          key = File.basename(file, '.*').gsub('@', '/')
+          key = File.basename(file, ".*").tr("@", "/")
           paths["/#{key}"] = content
         end
       end
