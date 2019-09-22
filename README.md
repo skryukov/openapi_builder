@@ -26,9 +26,74 @@ Or install it yourself as:
 
     $ gem install openapi_builder
 
-## Usage
+## Specification structure
 
-See rspec for examples.
+This gem builds specification splitted into separate files by the specific rules.
+
+Example folder structure:
+```
+openapi_spec
+|-- openapi.yml
+|-- paths
+|   |-- customers.yml
+|   |-- customers@{uuid}.yml
+|-- components
+|   |-- parameters
+|   |   |-- Uuid.yml
+|   |-- schemas
+|   |   |-- Customer.yml
+|   |-- requestBodies
+|   |   |-- CreateCustomer.yml
+|   |-- responses
+|   |   |-- 404.yml
+|   |   |-- 500.yml
+```
+
+### Root OpenAPI file
+
+Create root file (i.e. `./openapi.yml`) with the basic information: `info`, `tags`, `servers`, etc.
+
+### Paths
+
+Put all paths into a separate directory `./paths/` and write each path specification in separate file. 
+
+Filename is mapped to path by replacing `@` with `/`, i.e. `customers@{id}.yml` matches to `customers/{id}` path.
+
+### Reusable components
+
+Put all reusable components into `./components/` directory and then create necessary directories from the following list:
+  - `schemas` - reusable [Schema Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#schemaObject)
+  - `responses` - reusable [Response Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#responseObject)
+  - `parameters` - reusable [Parameter Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#parameterObject)
+  - `examples` - reusable [Example Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#exampleObject)
+  - `headers` - reusable [Header Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#headerObject)
+  - `requestBodies` - reusable [Request Body Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#requestBodyObject)
+  - `links` - reusable [Link Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#linkObject)
+  - `callbacks` - reusable [Callback Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#callbackObject)
+  - `securitySchemes` - reusable [Security Scheme Objects](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#securitySchemeObject)
+
+Filename of files inside the folders represent a component name, i.e. `Customer.yml`
+
+### Usage
+
+### cli
+
+To build OpenAPI file run `openapi_builder build SRC_FILE DST_FILE`:
+
+    $  openapi_builder build ./source/openapi.yml ./openapi.json
+
+### ruby
+
+You can build OpenAPI directly in your code:
+
+```ruby
+  OpenapiBuilder.call('./source/openapi.yml').data # => Hash
+```
+
+## Examples of repositories with splitted specification
+- https://github.com/Rebilly/RebillyAPI
+- https://github.com/thingful/openapi-spec
+- https://github.com/TwineHealth/TwineDeveloperDocs
 
 ## Development
 
