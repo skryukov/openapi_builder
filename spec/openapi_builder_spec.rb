@@ -7,4 +7,14 @@ RSpec.describe OpenapiBuilder do
 
     expect(result).to eq(expected_result)
   end
+
+  context "with filter" do
+    let(:expected_result) { YAML.load_file("./spec/data/filtered_openapi.yml") }
+
+    it "builds hash with specific paths" do
+      result = OpenapiBuilder.call(path_to_spec, paths: ['pets/{id}']).data
+
+      expect(result).to eq(expected_result)
+    end
+  end
 end
