@@ -7,6 +7,8 @@
 [![Build Status](https://travis-ci.org/medsolutions/openapi_builder.svg?branch=master)][travis]
 [![Code Climate](https://codeclimate.com/github/medsolutions/openapi_builder/badges/gpa.svg)][codeclimate]
 [![Test Coverage](https://codeclimate.com/github/medsolutions/openapi_builder/badges/coverage.svg)][codeclimate]
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
+
 
 Simple OpenAPI specification builder inspired by [Redoc.ly's Generator](https://github.com/ReDoc-ly/create-openapi-repo)
 
