@@ -15,9 +15,10 @@ module OpenapiBuilder
 
     private
 
-    def initialize(path_to_spec)
+    def initialize(path_to_spec, paths: [])
       @dirname = File.dirname(path_to_spec)
       @data = load_file(path_to_spec)
+      @paths = paths
       load_paths
       load_components
     end
@@ -52,6 +53,8 @@ module OpenapiBuilder
           next unless content
 
           key = File.basename(file, ".*").tr("@", "/")
+          next if filter_paths? && !key.start_with?(*@paths)
+
           paths["/#{key}"] = content
         end
       end
@@ -64,6 +67,10 @@ module OpenapiBuilder
       when ".json"
         JSON.parse(File.read(path))
       end
+    end
+
+    def filter_paths?
+      @paths.any?
     end
   end
 end
