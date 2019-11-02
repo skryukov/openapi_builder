@@ -15,10 +15,11 @@ module OpenapiBuilder
 
     private
 
-    def initialize(path_to_spec, paths: [])
+    def initialize(path_to_spec, paths: [], clear: false)
       @dirname = File.dirname(path_to_spec)
       @data = load_file(path_to_spec)
       @paths = paths
+      @clear = clear
       load_paths
       load_components
     end

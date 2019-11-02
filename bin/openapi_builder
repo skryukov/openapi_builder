@@ -12,6 +12,10 @@ OptionParser.new { |opts|
   opts.on("--filter=PATHS", Array, "Filter documentation by paths: 'pets,clients/me'") do |paths|
     options[:paths] = paths
   end
+
+  opts.on("--clear", "Remove unused models and tags from documentation") do |clear|
+    options[:clear] = true
+  end
 }.parse!
 
 builder = ->() { OpenapiBuilder.call(ARGV[0], **options) }
