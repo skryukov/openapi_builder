@@ -16,15 +16,15 @@ module OpenapiBuilder
     private
 
     def initialize(path_to_spec, paths: [])
+      @paths = paths
       @dirname = File.dirname(path_to_spec)
       @data = load_file(path_to_spec)
-      @paths = paths
-      load_paths
-      load_components
+      @data["paths"] = load_paths
+      @data["components"] = load_components
     end
 
     def load_components
-      @data["components"] = {}.tap do |components|
+      {}.tap do |components|
         component_dirs.each do |component_path|
           components[File.basename(component_path)] = load_component(component_path)
         end
@@ -47,13 +47,11 @@ module OpenapiBuilder
     end
 
     def load_paths
-      @data["paths"] = {}.tap do |paths|
-        Dir["#{@dirname}/paths/*"].each do |file|
-          content = load_file(file)
-          next unless content
-
-          key = File.basename(file, ".*").tr("@", "/")
-          next if filter_paths? && !key.start_with?(*@paths)
+      {}.tap do |paths|
+        Dir["#{@dirname}/paths/*"].each do |path|
+          content = load_file(path)
+          key = path_key(path)
+          next if content.nil? || filter_paths?(key)
 
           paths["/#{key}"] = content
         end
@@ -69,8 +67,12 @@ module OpenapiBuilder
       end
     end
 
-    def filter_paths?
-      @paths.any?
+    def path_key(path)
+      File.basename(path, ".*").tr("@", "/")
+    end
+
+    def filter_paths?(key)
+      @paths.any? && !key.start_with?(*@paths)
     end
   end
 end
