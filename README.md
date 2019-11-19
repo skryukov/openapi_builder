@@ -4,7 +4,7 @@
 
 # openapi_builder
 [![Gem Version](https://badge.fury.io/rb/openapi_builder.svg)][gem]
-[![CI Status](https://github.com/medsolutions/openapi_builder/workflows/ruby/badge.svg)][actions]
+[![CI Status](https://github.com/medsolutions/openapi_builder/workflows/ci/badge.svg)][actions]
 [![Code Climate](https://codeclimate.com/github/medsolutions/openapi_builder/badges/gpa.svg)][codeclimate]
 [![Test Coverage](https://codeclimate.com/github/medsolutions/openapi_builder/badges/coverage.svg)][codeclimate]
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
