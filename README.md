@@ -1,10 +1,10 @@
 [gem]: https://rubygems.org/gems/openapi_builder
-[travis]: https://travis-ci.org/medsolutions/openapi_builder
 [codeclimate]: https://codeclimate.com/github/medsolutions/openapi_builder
+[actions]: https://github.com/medsolutions/openapi_builder/actions
 
 # openapi_builder
 [![Gem Version](https://badge.fury.io/rb/openapi_builder.svg)][gem]
-[![Build Status](https://travis-ci.org/medsolutions/openapi_builder.svg?branch=master)][travis]
+[![CI Status](https://github.com/medsolutions/openapi_builder/workflows/ruby/badge.svg)][actions]
 [![Code Climate](https://codeclimate.com/github/medsolutions/openapi_builder/badges/gpa.svg)][codeclimate]
 [![Test Coverage](https://codeclimate.com/github/medsolutions/openapi_builder/badges/coverage.svg)][codeclimate]
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
